@@ -176,15 +176,70 @@ def exibir_indicadores(estruturas):
     interpretar_indicadores(dados)
 
 
+
 def interpretar_indicadores(dados):
 
     print("\nINTERPRETACAO DOS RESULTADOS")
     print("-" * 55)
 
     if dados["total"] == 0:
-
         print("Nao existem ocorrencias para analisar.")
         return
+
+    # Identifica a maior quantidade por categoria
+    maior_quantidade = max(
+        dados["quantidade_categoria"].values()
+    )
+
+    categorias_prioritarias = [
+        categoria
+        for categoria, quantidade
+        in dados["quantidade_categoria"].items()
+        if quantidade == maior_quantidade
+    ]
+
+    if len(categorias_prioritarias) > 1:
+        print(
+            "Categorias com maior quantidade: "
+            + ", ".join(categorias_prioritarias)
+            + f", com {maior_quantidade} ocorrencias cada."
+        )
+    else:
+        print(
+            f"A categoria com maior quantidade e "
+            f"{categorias_prioritarias[0]}, "
+            f"com {maior_quantidade} ocorrencias."
+        )
+
+    # Analisa as demandas pendentes
+    percentual_pendente = (
+        dados["pendentes"] / dados["total"]
+    ) * 100
+
+    if percentual_pendente > 50:
+        print("Mais da metade das demandas permanece pendente.")
+
+    elif percentual_pendente == 50:
+        print("Metade das demandas permanece pendente.")
+
+    else:
+        print("Menos da metade das demandas permanece pendente.")
+
+    # Analisa a conclusao
+    if dados["percentual_conclusao"] > 50:
+        print("A maioria das ocorrencias foi concluida.")
+
+    elif dados["percentual_conclusao"] == 50:
+        print("Metade das ocorrencias foi concluida.")
+
+    else:
+        print("Menos da metade das ocorrencias foi concluida.")
+
+    print(
+        "\nOs resultados representam exclusivamente dados simulados "
+        "e nao indicam o desempenho de orgaos publicos reais."
+    )
+
 
     # Identifica a categoria com maior quantidade
     categoria_prioritaria = max(
