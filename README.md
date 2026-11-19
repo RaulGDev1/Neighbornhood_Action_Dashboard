@@ -163,21 +163,22 @@ Também existe um registro propositalmente inconsistente, sem categoria, utiliza
 8. Organização dos arquivos
 A estrutura do projeto está organizada da seguinte forma:
 Neighborhood-Action-Dashboard/
-│
-├── README.md
-├── .gitignore
-│
-├── src/
-│   ├── sistema.py
-│   ├── ocorrencias.py
-│   ├── estruturas.py
-│   ├── indicadores.py
-│   └── testes.py
-│
-└── docs/
-    ├── relatorio.pdf
-    ├── link_video.txt
-    └── uso_ia.md
+
+    │
+    ├── README.md
+    ├── .gitignore
+    │
+    ├── src/
+    │   ├── sistema.py
+    │   ├── ocorrencias.py
+    │   ├── estruturas.py
+    │   ├── indicadores.py
+    │   └── testes.py
+    │
+    └── docs/
+        ├── relatorio.pdf
+        ├── link_video.txt
+        └── uso_ia.md
 Os dados são inicializados nos módulos Python, conforme explicado na seção anterior. Por isso, não existe um arquivo externo data/dados.csv.
 
 
